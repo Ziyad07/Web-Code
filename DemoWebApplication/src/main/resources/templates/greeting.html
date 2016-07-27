@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">D</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li class="#"><a href="/greeting">Update</a></li>
+
+        </ul>
+    </div>
+</nav>
+<p th:text="'Hello, ' + ${name} + '!'"/>
+
+<table border="1" style="width:300px">
+    <thead>
+    <tr>
+        <th> First Name</th>
+        <th> Last name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--<c:forEach var="user" items="${users}">-->
+    <!--<tr>-->
+    <!--<td> <c:out value="${user.firstName}"/> </td>-->
+    <!--<td> <c:out value="${user.lastName}"/> </td>-->
+    <!--</tr>-->
+    <!--</c:forEach>-->
+    </tbody>
+</table>
+
+</body>
+</html>

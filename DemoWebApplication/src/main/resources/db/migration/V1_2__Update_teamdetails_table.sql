@@ -1,0 +1,1 @@
+ALTER TABLE TeamDetails ADD COLUMN status VARCHAR (255);

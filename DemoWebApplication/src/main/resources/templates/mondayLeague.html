@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 80%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">D</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li class="#"><a href="/greeting">Update</a></li>
+
+        </ul>
+    </div>
+</nav>
+
+<div>
+    <h1>Monday Night Leagues</h1>
+
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6">
+        <table>
+            <thead>
+            <tr>
+                <th> Team Name</th>
+                <th> Played</th>
+                <th> Goal Difference</th>
+                <th> Points</th>
+            </tr>
+            </thead>
+            <tbody th:each="team : ${teams}">
+
+            <!--<c:forEach var="user" items="${users}">-->
+            <!--<tr>-->
+            <td th:text="${team.name}"></td>
+            <td th:text="${team.gamesPlayed}"></td>
+            <td th:text="${team.goalDiff}"></td>
+            <td th:text="${team.points}"></td>
+            <!--<td> <c:out value="${user.lastName}"/> </td>-->
+            <!--</tr>-->
+            <!--</c:forEach>-->
+            </tbody>
+        </table>
+
+    </div>
+</div>
+</body>
+</html>
