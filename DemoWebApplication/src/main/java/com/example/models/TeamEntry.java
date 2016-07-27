@@ -28,7 +28,6 @@ public class TeamEntry {
     private String status;
 
     public TeamEntry() {
-
     }
 
     public TeamEntry(String name, String leagueNight) {

@@ -42,7 +42,6 @@ public class DataSourceConfig {
 
         Flyway flyway = new Flyway();
         flyway.setDataSource(dataSource());
-
         flyway.repair();
         flyway.setBaselineOnMigrate(true);
         flyway.migrate();

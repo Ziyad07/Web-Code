@@ -58,16 +58,10 @@
             </tr>
             </thead>
             <tbody th:each="team : ${teams}">
-
-            <!--<c:forEach var="user" items="${users}">-->
-            <!--<tr>-->
             <td th:text="${team.name}"></td>
             <td th:text="${team.gamesPlayed}"></td>
             <td th:text="${team.goalDiff}"></td>
             <td th:text="${team.points}"></td>
-            <!--<td> <c:out value="${user.lastName}"/> </td>-->
-            <!--</tr>-->
-            <!--</c:forEach>-->
             </tbody>
         </table>
 
