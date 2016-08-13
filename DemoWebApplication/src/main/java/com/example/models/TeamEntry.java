@@ -27,9 +27,6 @@ public class TeamEntry {
     @Column
     private String status;
 
-    public TeamEntry() {
-    }
-
     public TeamEntry(String name, String leagueNight) {
         this.name = name;
         this.leagueNight = leagueNight;

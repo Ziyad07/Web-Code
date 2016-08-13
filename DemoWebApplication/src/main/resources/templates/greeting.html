@@ -22,22 +22,24 @@
 </nav>
 <p th:text="'Hello, ' + ${name} + '!'"/>
 
-<table border="1" style="width:300px">
-    <thead>
-    <tr>
-        <th> First Name</th>
-        <th> Last name</th>
-    </tr>
-    </thead>
-    <tbody>
-    <!--<c:forEach var="user" items="${users}">-->
-    <!--<tr>-->
-    <!--<td> <c:out value="${user.firstName}"/> </td>-->
-    <!--<td> <c:out value="${user.lastName}"/> </td>-->
-    <!--</tr>-->
-    <!--</c:forEach>-->
-    </tbody>
-</table>
+<div class="col-md-8">
+    <div class="col-md-2">Choose team to edit:</div>
 
+    <!--<div th:each="team : ${teams}"><a th:text="${team.name}">team</a></div>-->
+
+    <div class="dropdown class-md-4">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+            <span class="caret"></span></button>
+        <ul class="dropdown-menu" th:each="team : ${teams}">
+
+            <li th:text="${team.name}"></li>
+            <!--<li><a href="#">HTML</a></li>-->
+            <!--<li><a href="#">CSS</a></li>-->
+            <!--<li><a href="#">JavaScript</a></li>-->
+        </ul>
+    </div>
+
+
+</div>
 </body>
 </html>

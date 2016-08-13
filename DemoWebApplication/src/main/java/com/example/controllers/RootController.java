@@ -20,10 +20,13 @@ import java.util.List;
 public class RootController {
     private SessionFactory sessionFactory;
     private Session session;
+    private ReadExcelFiles excelFiles;
 
     @Autowired
-    public RootController(SessionFactory sessionFactory) {
+    public RootController(SessionFactory sessionFactory,
+                          ReadExcelFiles excelFiles) {
         this.sessionFactory = sessionFactory;
+        this.excelFiles = excelFiles;
     }
 
 
@@ -34,25 +37,27 @@ public class RootController {
 
     @RequestMapping(value = "/mondayLeague")
     public String monday(Model model) {
-        session = sessionFactory.getCurrentSession();
-        TeamEntry team = new TeamEntry("ManUtd2", "Tuesday");
-        TeamEntry team2 = new TeamEntry("Liva2", "Tuesday");
-        session.save(team);
-        session.save(team2);
-        team.setGamesPlayed(1);
-        team.setGamesPlayed(1);
-        Criteria criteria = session.createCriteria(TeamEntry.class);
-        List<TeamEntry> list = criteria.list();
 
-//        List<TeamEntry> list = new ArrayList<>();
-//        list.add(team);
-//        list.add(team2);
+        List<TeamEntry> list = excelFiles.retrieveEntries("Monday");
         model.addAttribute("teams", list);
         return "mondayLeague";
     }
 
+    @RequestMapping(value = "/fridayLeague")
+    public String friday(Model model) {
+
+        List<TeamEntry> list = excelFiles.retrieveEntries("Friday");
+        model.addAttribute("teams", list);
+        return "fridayLeague";
+    }
+
     @RequestMapping("/greeting")
     public String greeting(@RequestParam(value = "name", required = false, defaultValue = "World") String name, Model model) {
+        session = sessionFactory.getCurrentSession();
+        Criteria criteria = session.createCriteria(TeamEntry.class);
+        List list = criteria.list();
+        System.out.print("\n\n\n" + list.size());
+        model.addAttribute("teams", list);
         model.addAttribute("name", name);
         return "greeting";
     }
