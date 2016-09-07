@@ -1,4 +1,4 @@
-package com.example.controllers;
+package com.example.configuration;
 
 import com.example.dataAccess.TeamAndNightsDAO;
 import com.example.models.TeamEntry;
@@ -37,6 +37,11 @@ public class ReadExcelFiles {
     public List<TeamEntry> retrieveEntries(String leagueNight) {
         return teamAndNightsDAO.retrieveList(leagueNight);
     }
+
+    public List<TeamEntry> retrieveAllTeamEntries() {
+        return teamAndNightsDAO.retrieveAllTeamsList();
+    }
+
 
     @PostConstruct
     public void ReadFiles() {

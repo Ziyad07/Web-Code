@@ -48,10 +48,17 @@ public class TeamAndNightsDAO {
         return (List<TeamEntry>) criteria.list();
     }
 
-    public TeamEntry retrieveTeamEntry(String teamEntryName) {
+    public List<TeamEntry> retrieveAllTeamsList() {
+        Session session = sessionFactory.getCurrentSession();
+        Criteria criteria = session.createCriteria(TeamEntry.class);
+        return (List<TeamEntry>) criteria.list();
+    }
+
+    public TeamEntry retrieveTeamEntry(String teamEntryName, String leagueNight) {
         Session session = sessionFactory.getCurrentSession();
         Criteria criteria = session.createCriteria(TeamEntry.class);
         criteria.add(eq("name", teamEntryName));
+        criteria.add(eq("leagueNight", leagueNight));
         return (TeamEntry) criteria.uniqueResult();
     }
 }

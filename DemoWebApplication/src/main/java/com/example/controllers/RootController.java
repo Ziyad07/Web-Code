@@ -1,5 +1,7 @@
 package com.example.controllers;
 
+import com.example.configuration.ReadExcelFiles;
+import com.example.dataAccess.DrawUpFixtures;
 import com.example.models.TeamEntry;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -21,12 +23,15 @@ public class RootController {
     private SessionFactory sessionFactory;
     private Session session;
     private ReadExcelFiles excelFiles;
+    private DrawUpFixtures drawUpFixtures;
 
     @Autowired
     public RootController(SessionFactory sessionFactory,
-                          ReadExcelFiles excelFiles) {
+                          ReadExcelFiles excelFiles,
+                          DrawUpFixtures drawUpFixtures) {
         this.sessionFactory = sessionFactory;
         this.excelFiles = excelFiles;
+        this.drawUpFixtures = drawUpFixtures;
     }
 
 
@@ -40,6 +45,8 @@ public class RootController {
 
         List<TeamEntry> list = excelFiles.retrieveEntries("Monday");
         model.addAttribute("teams", list);
+        drawUpFixtures.ConjureFixtures("Monday");
+//        model.addAttribute("fixtures", fixtures);
         return "mondayLeague";
     }
 

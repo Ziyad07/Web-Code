@@ -26,6 +26,40 @@ public class TeamEntry {
     private int goalsAgainst = 0;
     @Column
     private String status;
+    @Column
+    private int wins;
+    @Column
+    private int draws;
+    @Column
+    private int loses;
+
+    public void setWins(int wins) {
+        this.wins = getWins() + wins;
+    }
+
+    public void setDraws(int draws) {
+        this.draws = getDraws() + draws;
+    }
+
+    public void setLoses(int loses) {
+        this.loses = getLoses() + loses;
+    }
+
+    public int getWins() {
+
+        return wins;
+    }
+
+    public int getDraws() {
+        return draws;
+    }
+
+    public int getLoses() {
+        return loses;
+    }
+
+    public TeamEntry() {
+    }
 
     public TeamEntry(String name, String leagueNight) {
         this.name = name;
