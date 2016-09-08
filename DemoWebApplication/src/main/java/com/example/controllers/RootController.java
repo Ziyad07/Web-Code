@@ -2,6 +2,7 @@ package com.example.controllers;
 
 import com.example.configuration.ReadExcelFiles;
 import com.example.dataAccess.DrawUpFixtures;
+import com.example.models.FixtureTeams;
 import com.example.models.TeamEntry;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -46,7 +47,9 @@ public class RootController {
         List<TeamEntry> list = excelFiles.retrieveEntries("Monday");
         model.addAttribute("teams", list);
         drawUpFixtures.ConjureFixtures("Monday");
-//        model.addAttribute("fixtures", fixtures);
+
+        List<FixtureTeams> fixtures = drawUpFixtures.retrieveFixtureList("Monday");
+        model.addAttribute("fixtures", fixtures);
         return "mondayLeague";
     }
 

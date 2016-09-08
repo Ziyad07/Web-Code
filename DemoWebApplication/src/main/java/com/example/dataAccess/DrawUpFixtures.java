@@ -39,16 +39,18 @@ public class DrawUpFixtures {
     public void ConjureFixtures(String leagueNight) {
         List<TeamEntry> allTeams = readExcelFiles.retrieveEntries(leagueNight);
         int numberOfTeams = allTeams.size();
+//        FixtureTeams [][] fixtures = new FixtureTeams[numberOfTeams][numberOfTeams];
 // This only gets home games if j = i
         for (int i = 0; i < numberOfTeams; i++) {
-            for (int j = 0; j < numberOfTeams; j++) {
+            for (int j = i; j < numberOfTeams; j++) {
                 if (i != j) {
-                    FixtureTeams fixtures = new FixtureTeams(allTeams.get(i), allTeams.get(j), leagueNight);
+                    FixtureTeams fixturesTeams = new FixtureTeams(allTeams.get(i), allTeams.get(j), leagueNight);
                     // persist this to database
-                    persist(fixtures);
+                    persist(fixturesTeams);
                 }
             }
         }
+//        return fixtures;
     }
 
 }
